@@ -938,6 +938,7 @@ footer{padding:50px 24px;background:var(--brown-section);}
 .admin-login-box .section-label{margin-bottom:0;font-size:0.85rem;}
 .admin-login-box h1{font-size:1.5rem;margin-bottom:0;}
 .admin-login-arch{margin:2px auto 14px;width:90px;height:30px;display:block;}
+.admin-login-arch path{fill:none;stroke:var(--clay);stroke-width:3;stroke-linecap:round;}
 .admin-login-box form{text-align:left;}
 .admin-login-box .form-row{margin-bottom:14px;}
 .admin-login-box .btn{width:100%;text-align:center;margin-top:2px;}
@@ -1089,10 +1090,10 @@ footer{padding:50px 24px;background:var(--brown-section);}
 
 /* Faixa escura "Como trabalhamos": curva no lugar da diagonal */
 .tech{
-  clip-path:none;margin:0 12px;border-radius:var(--r-lg);
+  clip-path:none;margin:0 12px 48px;border-radius:var(--r-lg);
   padding-top:90px;padding-bottom:90px;
 }
-@media(min-width:900px){.tech{margin:0 24px;}}
+@media(min-width:900px){.tech{margin:0 24px 64px;}}
 .tech-row{background:none;gap:16px;}
 .tech-item{
   background:rgba(250,246,239,0.06);
@@ -1270,7 +1271,7 @@ footer{padding:50px 24px;background:var(--brown-section);}
   .treat-detail-body{padding:0 20px 24px;gap:20px;}
 
   /* Faixa "Como trabalhamos" */
-  .tech{padding-top:52px;padding-bottom:52px;margin:0 8px;}
+  .tech{padding-top:52px;padding-bottom:52px;margin:0 8px 32px;}
   .tech h2{margin-bottom:24px;}
   .tech-row{gap:10px;}
   .tech-item{padding:24px 20px;}
