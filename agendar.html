@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendar Avaliação — Ste Blume</title>
+<meta name="description" content="Agende sua avaliação na Ste Blume. Preencha o formulário e finalize pelo WhatsApp.">
+<meta property="og:title" content="Agendar Avaliação — Ste Blume">
+<meta property="og:description" content="Agende sua avaliação de tricologia e regeneração de sobrancelhas.">
+<meta property="og:image" content="logo.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand-wrap">
+    <button type="button" class="brand" id="brandBtn" aria-haspopup="true" aria-expanded="false" aria-label="Ste Blume">
+      <img src="logo.png" alt="Logo Ste Blume" width="34" height="34">
+      <span><span class="logo">Ste <em>Blume</em></span><span class="tagline">Beauty Clinic</span></span>
+    </button>
+    <a href="admin.html" class="admin-pop" id="adminPop" hidden>Ir para o painel administrativo</a>
+  </div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="tratamentos.html">Tratamentos</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="faq.html">FAQ</a>
+    <a href="index.html#galeria">Galeria</a>
+  </nav>
+  <a href="agendar.html" class="cta">Agendar</a>
+</header>
+<div class="content">
+
+  <section class="page-hero">
+    <div class="wrap reveal">
+      <div class="breadcrumb"><a href="index.html">Início</a> / Agendar</div>
+      <h1>Vamos agendar sua avaliação</h1>
+      <p>Preencha os dados abaixo. Ao enviar, você será direcionado ao WhatsApp com sua solicitação já pronta — a Steffany confirma o melhor horário com você por lá.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="booking-layout">
+
+        <form class="booking-form reveal" id="booking-form">
+          <div class="form-row">
+            <label for="b-name">Nome completo</label>
+            <input type="text" id="b-name" name="name" required maxlength="80" autocomplete="name" placeholder="Seu nome">
+          </div>
+
+          <div class="form-row">
+            <label for="b-phone">WhatsApp para contato</label>
+            <input type="tel" id="b-phone" name="phone" required maxlength="20" autocomplete="tel" placeholder="(27) 9 9999-9999">
+          </div>
+
+          <div class="form-row">
+            <label>Dia</label>
+            <div id="b-dates" class="dates-scroll">
+              <p class="slots-loading">Carregando dias disponíveis...</p>
+            </div>
+            <input type="hidden" id="b-date" name="date">
+          </div>
+
+          <div class="form-row">
+            <label>Horário</label>
+            <div id="b-slots" class="slots-grid">
+              <p class="slots-loading">Selecione um dia para ver os horários disponíveis.</p>
+            </div>
+            <input type="hidden" id="b-slot-value" name="slot">
+          </div>
+
+          <div class="form-row">
+            <label for="b-notes">Conte um pouco o que te trouxe até aqui (opcional)</label>
+            <textarea id="b-notes" name="notes" maxlength="500" placeholder="Ex.: tenho falhas na lateral esquerda, já fiz micropigmentação antiga, quero sobrancelhas mais naturais..."></textarea>
+          </div>
+
+          <button type="submit" class="btn">Reservar horário e continuar no WhatsApp</button>
+          <p id="b-status" class="form-status" role="status"></p>
+          <p class="form-note">O horário fica reservado assim que você envia — o WhatsApp abre em seguida só para confirmar os detalhes.</p>
+        </form>
+
+        <aside class="booking-side reveal">
+          <div class="booking-side-item highlight">
+            <span class="label">Prefere falar direto?</span>
+            <p><a href="https://api.whatsapp.com/send?phone=5527998041609&text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Ste%20Blume%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20%F0%9F%98%8A" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Chame no WhatsApp</a> sem preencher o formulário.</p>
+          </div>
+          <div class="booking-side-item">
+            <span class="label">Horário de atendimento</span>
+            <p>Segunda a sábado, 9h às 19h<br>Somente com horário marcado</p>
+          </div>
+          <div class="booking-side-item">
+            <span class="label">Endereço</span>
+            <p>Av. Frederico Grulke, 361 — Centro<br>Santa Maria de Jetibá - ES</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Av.+Frederico+Grulke%2C+361%2C+Centro%2C+Santa+Maria+de+Jetib%C3%A1+-+ES" target="_blank" rel="noopener" class="map-link">Como chegar ›</a>
+          </div>
+          <div class="booking-side-item">
+            <span class="label">Antes de vir</span>
+            <p>Se possível, evite maquiagem na região das sobrancelhas no dia da avaliação.</p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-row">
+      <div>
+        <div class="logo">Ste <em>Blume</em></div>
+        <div class="footer-tagline">Beauty Clinic</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Início</a>
+        <a href="tratamentos.html">Tratamentos</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-note">© 2026 Ste Blume</div>
+    </div>
+  </footer>
+
+</div>
+
+<a class="wa-float" href="https://api.whatsapp.com/send?phone=5527998041609&text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Ste%20Blume%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20%F0%9F%98%8A" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 3C9.373 3 4 8.373 4 15c0 2.386.694 4.611 1.892 6.487L4 29l7.72-1.855A11.93 11.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3z" fill="#D9BC79"/>
+    <path d="M22.2 18.55c-.33-.165-1.94-.955-2.24-1.065-.3-.11-.52-.165-.74.165-.22.33-.85 1.065-1.04 1.285-.19.22-.38.245-.71.08-.33-.165-1.39-.51-2.65-1.63-.98-.87-1.64-1.95-1.83-2.28-.19-.33-.02-.51.14-.675.145-.145.33-.38.49-.57.165-.19.22-.33.33-.55.11-.22.055-.41-.03-.575-.08-.165-.74-1.78-1.01-2.44-.265-.64-.54-.55-.74-.56-.19-.01-.41-.01-.63-.01-.22 0-.575.08-.875.41-.3.33-1.15 1.125-1.15 2.745 0 1.62 1.18 3.185 1.345 3.405.165.22 2.32 3.545 5.62 4.97.785.34 1.4.545 1.88.695.79.25 1.51.215 2.08.13.635-.095 1.94-.79 2.215-1.555.275-.765.275-1.42.19-1.555-.08-.14-.3-.22-.63-.385z" fill="#3D2B1C"/>
+  </svg>
+</a>
+
+<script src="script.js"></script>
+<script src="js/schedule-config.js"></script>
+<script src="js/booking-backend.js"></script>
+<script src="js/booking-ui.js"></script>
+<script>
+  setTimeout(function () {
+    var wrap = document.getElementById('b-dates');
+    if (wrap && !wrap.querySelector('.cal-grid')) {
+      wrap.innerHTML = '<p class="slots-loading">Não foi possível carregar o calendário. Recarregue a página ou <a href="https://api.whatsapp.com/send?phone=5527998041609" style="text-decoration:underline">chame no WhatsApp</a> para agendar.</p>';
+    }
+  }, 3000);
+</script>
+</body>
+</html>

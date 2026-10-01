@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendamentos — Ste Blume</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="mobile-bar">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <img src="logo.png" alt="Logo Ste Blume" width="28" height="28" style="border-radius:50%;display:block;">
+    <div>
+      <div class="logo">Ste <em>Blume</em></div>
+      <div class="tagline">Painel</div>
+    </div>
+  </div>
+</div>
+
+<div class="admin-wrap">
+
+  <p id="admin-checking" class="admin-empty-state" style="padding-top:140px;">Verificando acesso...</p>
+
+  <section id="admin-panel" hidden>
+    <div class="admin-header-bar">
+      <div>
+        <div class="section-label">Ste Blume</div>
+        <h1>Agendamentos</h1>
+        <p id="admin-summary" class="admin-summary"></p>
+      </div>
+      <div class="admin-header-actions">
+        <a href="bloquear-agenda.html" class="btn-ghost btn">Bloquear agenda</a>
+        <a href="index.html" class="btn-ghost btn">← Voltar ao site</a>
+        <button type="button" id="admin-logout" class="btn-ghost btn">Sair</button>
+      </div>
+    </div>
+
+    <div id="admin-bookings"></div>
+    <p id="admin-empty" class="admin-empty-state" hidden>Nenhum agendamento futuro no momento.</p>
+  </section>
+
+</div>
+
+<script src="js/schedule-config.js"></script>
+<script src="js/admin-panel.js"></script>
+</body>
+</html>

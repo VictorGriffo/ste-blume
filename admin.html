@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel — Ste Blume</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="mobile-bar">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <img src="logo.png" alt="Logo Ste Blume" width="28" height="28" style="border-radius:50%;display:block;">
+    <div>
+      <div class="logo">Ste <em>Blume</em></div>
+      <div class="tagline">Painel</div>
+    </div>
+  </div>
+</div>
+
+<div class="admin-wrap">
+
+  <section id="admin-login">
+    <div class="admin-login-box reveal is-visible">
+      <img src="logo.png" alt="Logo Ste Blume" class="admin-login-mark">
+      <div class="section-label">Área restrita</div>
+      <h1>Painel Ste Blume</h1>
+      <svg class="hero-arch admin-login-arch" viewBox="0 0 180 60"><path d="M6 50C40 6 140 6 174 50"/></svg>
+      <form id="admin-login-form">
+        <div class="form-row">
+          <label for="admin-email">E-mail</label>
+          <input type="email" id="admin-email" required autocomplete="username">
+        </div>
+        <div class="form-row">
+          <label for="admin-password">Senha</label>
+          <input type="password" id="admin-password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn">Entrar</button>
+        <p id="admin-login-error" class="admin-error"></p>
+      </form>
+      <a href="index.html" class="admin-back">← Voltar ao site</a>
+    </div>
+  </section>
+
+</div>
+
+<script src="js/schedule-config.js"></script>
+<script src="js/admin-login.js"></script>
+</body>
+</html>

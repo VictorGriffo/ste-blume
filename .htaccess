@@ -1,0 +1,12 @@
+# Bloqueia o acesso direto a arquivos que nunca devem ficar públicos,
+# mesmo que acabem sendo enviados para a hospedagem por engano.
+<FilesMatch "\.(txt|ps1|md|local\.txt)$">
+  Require all denied
+</FilesMatch>
+
+<Files "admin-credenciais.local.txt">
+  Require all denied
+</Files>
+
+# Evita que alguém veja a lista de arquivos da pasta pelo navegador.
+Options -Indexes

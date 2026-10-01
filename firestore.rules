@@ -1,0 +1,38 @@
+// Regras de segurança do Firestore para o projeto steblume-agenda.
+// Isto NÃO é aplicado automaticamente — precisa ser colado no Firebase Console.
+// Veja o passo a passo que a Claude explicou no chat.
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // slots: marca cada horário como ocupado (reserva) ou bloqueado (folga).
+    // Não tem dados pessoais, por isso pode ser lido por qualquer pessoa —
+    // é assim que o calendário do site sabe quais horários mostrar.
+    match /slots/{slotId} {
+      allow read: if true;
+      // Só cria se o horário ainda não existir (evita que duas pessoas
+      // reservem o mesmo horário ao mesmo tempo).
+      allow create: if !exists(/databases/$(database)/documents/slots/$(slotId))
+                    && request.resource.data.date is string
+                    && request.resource.data.time is string;
+      // Cancelar reserva ou desbloquear um horário só pelo painel (logado).
+      allow delete: if request.auth != null;
+      allow update: if false;
+    }
+
+    // bookings: nome, telefone e observações das clientes — dado pessoal.
+    // Qualquer pessoa pode CRIAR (é o formulário de agendamento, sem login),
+    // mas só a Steffany logada pode LER ou APAGAR a lista.
+    match /bookings/{bookingId} {
+      allow create: if request.resource.data.name is string
+                    && request.resource.data.name.size() > 0
+                    && request.resource.data.name.size() < 200
+                    && request.resource.data.phone is string
+                    && request.resource.data.phone.size() < 50
+                    && request.resource.data.date is string
+                    && request.resource.data.time is string;
+      allow read, delete: if request.auth != null;
+      allow update: if false;
+    }
+  }
+}

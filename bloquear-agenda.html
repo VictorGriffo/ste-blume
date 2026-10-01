@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloquear Agenda — Ste Blume</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="mobile-bar">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <img src="logo.png" alt="Logo Ste Blume" width="28" height="28" style="border-radius:50%;display:block;">
+    <div>
+      <div class="logo">Ste <em>Blume</em></div>
+      <div class="tagline">Painel</div>
+    </div>
+  </div>
+</div>
+
+<div class="admin-wrap">
+
+  <p id="admin-checking" class="admin-empty-state" style="padding-top:140px;">Verificando acesso...</p>
+
+  <section id="admin-panel" hidden>
+    <div class="admin-header-bar">
+      <div>
+        <div class="section-label">Ste Blume</div>
+        <h1>Bloquear agenda</h1>
+        <p class="admin-summary">Feche um dia inteiro ou só um horário específico.</p>
+      </div>
+      <div class="admin-header-actions">
+        <a href="painel.html" class="btn-ghost btn">← Agendamentos</a>
+        <button type="button" id="admin-logout" class="btn-ghost btn">Sair</button>
+      </div>
+    </div>
+
+    <section class="admin-block-section">
+      <p class="admin-block-hint">Use para fechar um dia inteiro (folga, viagem) ou só um horário específico. Agendamentos já confirmados não são cancelados — cancele-os na lista de agendamentos, se precisar.</p>
+
+      <div class="admin-block-forms">
+        <form id="admin-block-day-form" class="admin-block-form">
+          <div class="form-row">
+            <label for="block-day-date">Bloquear o dia inteiro</label>
+            <input type="date" id="block-day-date" required>
+          </div>
+          <button type="submit" class="btn-ghost btn">Bloquear dia</button>
+          <p class="admin-row-error" id="block-day-error"></p>
+        </form>
+
+        <form id="admin-block-slot-form" class="admin-block-form">
+          <div class="form-row">
+            <label for="block-slot-date">Bloquear um horário</label>
+            <input type="date" id="block-slot-date" required>
+          </div>
+          <div class="form-row">
+            <label for="block-slot-time">Horário</label>
+            <select id="block-slot-time" required></select>
+          </div>
+          <button type="submit" class="btn-ghost btn">Bloquear horário</button>
+          <p class="admin-row-error" id="block-slot-error"></p>
+        </form>
+      </div>
+
+      <div id="admin-blocked-list"></div>
+      <p id="admin-blocked-empty" class="admin-empty-state" hidden>Nenhum bloqueio futuro.</p>
+    </section>
+
+  </section>
+
+</div>
+
+<script src="js/schedule-config.js"></script>
+<script src="js/admin-block.js"></script>
+</body>
+</html>
