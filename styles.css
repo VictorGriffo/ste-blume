@@ -1,4 +1,4 @@
-:root{
+﻿:root{
   --ivory:#F3ECE0;
   --ivory-soft:#FAF6EF;
   --white:#FFFFFF;
@@ -775,8 +775,7 @@ footer{padding:50px 24px;background:var(--brown-section);}
 @media(min-width:560px){.form-row-split{grid-template-columns:1fr 1fr;}}
 
 .booking-form label,
-.admin-login-box label,
-.admin-block-form label{
+.admin-login-box label{
   display:block;
   font-family:'Fraunces', serif;font-style:italic;color:var(--clay);
   font-size:0.92rem;margin-bottom:8px;
@@ -1004,7 +1003,7 @@ footer{padding:50px 24px;background:var(--brown-section);}
   .admin-row-error{text-align:left;max-width:100%;}
 }
 
-/* ---------- ADMIN: BLOQUEAR AGENDA ---------- */
+/* ---------- ADMIN: LIBERAR AGENDA ---------- */
 .admin-block-section{
   margin-bottom:56px;padding-bottom:40px;
   border-bottom:1px solid var(--line);
@@ -1012,28 +1011,26 @@ footer{padding:50px 24px;background:var(--brown-section);}
 .admin-block-section h2{font-size:1.4rem;margin-bottom:8px;}
 .admin-block-hint{color:var(--brown-mid);font-size:0.88rem;max-width:640px;margin-bottom:22px;}
 
-.admin-block-forms{
-  display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:28px;
+.avail-layout{display:grid;grid-template-columns:1fr;gap:28px;margin-bottom:40px;}
+@media(min-width:900px){.avail-layout{grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:40px;align-items:start;}}
+.avail-col{display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
+.avail-col .dates-scroll{width:100%;}
+.avail-title{
+  font-family:'Fraunces', serif;font-style:italic;color:var(--clay);font-size:0.95rem;
 }
-@media(min-width:700px){.admin-block-forms{grid-template-columns:1fr 1fr;}}
-
-.admin-block-form{
-  background:var(--white);border:1px solid var(--line);
-  padding:20px 22px;display:flex;flex-direction:column;gap:14px;align-items:flex-start;
+.avail-selected{color:var(--brown-deep);font-weight:500;min-height:3.2em;}
+.avail-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.avail-list-title{margin-top:8px;}
+.avail-legend{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:0.82rem;color:var(--brown-mid);}
+.avail-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block;}
+.cal-day.released{position:relative;}
+.cal-day.released::after{
+  content:'';position:absolute;left:50%;bottom:5px;width:6px;height:6px;margin-left:-3px;
+  border-radius:50%;background:var(--gold);
 }
-.admin-block-form .form-row{width:100%;}
-.admin-block-form input,
-.admin-block-form select{
-  width:100%;font-family:'Work Sans', sans-serif;font-size:0.92rem;
-  color:var(--brown-deep);background:var(--ivory-soft);
-  border:1px solid var(--line);padding:10px 12px;
-}
-.admin-block-form input:focus,
-.admin-block-form select:focus{outline:none;border-color:var(--gold);}
-.admin-block-form .admin-row-error{text-align:left;max-width:100%;}
-
-.admin-row-blocked .admin-time-badge{background:var(--brown-mid);}
-
+.cal-day.released.selected::after{background:var(--ivory-soft);}
+#a-list .admin-row-actions{flex-direction:row;flex-wrap:wrap;justify-content:flex-end;align-items:center;}
+@media(max-width:640px){#a-list .admin-row-actions{justify-content:flex-start;}}
 /* ---------- WHATSAPP FLOAT ---------- */
 .wa-float{
   position:fixed;
@@ -1155,7 +1152,7 @@ footer{padding:50px 24px;background:var(--brown-section);}
 /* Agendamento */
 .booking-form{border:none;border-radius:var(--r-lg);box-shadow:var(--shadow-soft);}
 .booking-form input,.booking-form select,.booking-form textarea,
-.admin-login-box input,.admin-block-form input,.admin-block-form select{border-radius:var(--r-sm);}
+.admin-login-box input{border-radius:var(--r-sm);}
 .dates-scroll{border:none;border-radius:var(--r-md);box-shadow:var(--shadow-soft);}
 .cal-nav{border-radius:var(--r-sm);}
 .cal-day{border-radius:var(--r-sm);}
@@ -1169,7 +1166,6 @@ footer{padding:50px 24px;background:var(--brown-section);}
 .admin-row{border:none;border-radius:var(--r-md);box-shadow:var(--shadow-soft);}
 .admin-row:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);}
 .admin-time-badge{border-radius:var(--r-sm);}
-.admin-block-form{border:none;border-radius:var(--r-md);box-shadow:var(--shadow-soft);}
 /* ---------- FAQ (layout com painel lateral e grupos) ---------- */
 .faq-section{padding-top:24px;padding-bottom:100px;}
 .faq-layout{display:grid;grid-template-columns:1fr;gap:48px;align-items:start;}

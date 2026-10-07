@@ -1,16 +1,17 @@
 // Configuração de horários de atendimento e do banco de dados (Firebase).
-// Ajuste os valores abaixo conforme a agenda real da Steffany.
+// Os dias e horários que as clientes veem NÃO vêm daqui: a Steffany libera cada
+// dia e horário no painel (liberar-agenda.html). Aqui fica só a grade de horários
+// que ela pode escolher e até quantos dias à frente ela pode liberar.
+// Se mudar a grade, atualize também a lista de horários em firestore.rules.
 
 window.STEBLUME = {
   SCHEDULE: {
-    // 0=domingo, 1=segunda, 2=terça, 3=quarta, 4=quinta, 5=sexta, 6=sábado
-    workDays: [1, 2, 3, 4, 5, 6],
     startHour: 9,
     endHour: 19,
     breakStart: 12,
     breakEnd: 13,
     slotMinutes: 60,
-    daysAhead: 30
+    daysAhead: 60
   },
 
   WHATSAPP_NUMBER: '5527998041609',
@@ -34,7 +35,7 @@ window.STEBLUME = {
 };
 
 // Lista de horários do dia (ex.: "09:00", "10:00"...), pulando o intervalo de almoço.
-// Usada tanto no agendamento (js/booking-ui.js) quanto no painel de bloqueio (js/admin-block.js).
+// Usada no painel de liberar horários (js/admin-availability.js).
 window.STEBLUME.buildTimeList = function () {
   var SCHEDULE = window.STEBLUME.SCHEDULE;
   function pad(n) { return n < 10 ? '0' + n : '' + n; }

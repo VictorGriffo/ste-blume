@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloquear Agenda — Ste Blume</title>
+<title>Liberar Agenda — Ste Blume</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,8 +31,8 @@
     <div class="admin-header-bar">
       <div>
         <div class="section-label">Ste Blume</div>
-        <h1>Bloquear agenda</h1>
-        <p class="admin-summary">Feche um dia inteiro ou só um horário específico.</p>
+        <h1>Liberar agenda</h1>
+        <p class="admin-summary">Escolha os dias e os horários que ficam abertos para as clientes agendarem.</p>
       </div>
       <div class="admin-header-actions">
         <a href="painel.html" class="btn-ghost btn">← Agendamentos</a>
@@ -41,34 +41,31 @@
     </div>
 
     <section class="admin-block-section">
-      <p class="admin-block-hint">Use para fechar um dia inteiro (folga, viagem) ou só um horário específico. Agendamentos já confirmados não são cancelados — cancele-os na lista de agendamentos, se precisar.</p>
+      <p class="admin-block-hint">As clientes só veem os dias e horários que você liberar aqui. <strong>1.</strong> Toque em um ou mais dias. <strong>2.</strong> Marque os horários. <strong>3.</strong> Salve. Agendamentos já feitos não são cancelados — cancele-os na lista de agendamentos, se precisar.</p>
 
-      <div class="admin-block-forms">
-        <form id="admin-block-day-form" class="admin-block-form">
-          <div class="form-row">
-            <label for="block-day-date">Bloquear o dia inteiro</label>
-            <input type="date" id="block-day-date" required>
-          </div>
-          <button type="submit" class="btn-ghost btn">Bloquear dia</button>
-          <p class="admin-row-error" id="block-day-error"></p>
-        </form>
+      <div class="avail-layout">
+        <div class="avail-col">
+          <span class="avail-title">1. Dias</span>
+          <div id="a-cal" class="dates-scroll"></div>
+        </div>
 
-        <form id="admin-block-slot-form" class="admin-block-form">
-          <div class="form-row">
-            <label for="block-slot-date">Bloquear um horário</label>
-            <input type="date" id="block-slot-date" required>
+        <div class="avail-col">
+          <span class="avail-title">2. Horários</span>
+          <p id="a-selected-label" class="avail-selected">Nenhum dia selecionado</p>
+          <div id="a-times" class="slots-grid"></div>
+          <div class="avail-actions">
+            <button type="button" id="a-all" class="btn-ghost btn">Marcar todos</button>
+            <button type="button" id="a-none" class="btn-ghost btn">Limpar</button>
           </div>
-          <div class="form-row">
-            <label for="block-slot-time">Horário</label>
-            <select id="block-slot-time" required></select>
-          </div>
-          <button type="submit" class="btn-ghost btn">Bloquear horário</button>
-          <p class="admin-row-error" id="block-slot-error"></p>
-        </form>
+          <span class="avail-title">3. Salvar</span>
+          <button type="button" id="a-save" class="btn" disabled>Salvar horários</button>
+          <p id="a-status" class="form-status" role="status"></p>
+        </div>
       </div>
 
-      <div id="admin-blocked-list"></div>
-      <p id="admin-blocked-empty" class="admin-empty-state" hidden>Nenhum bloqueio futuro.</p>
+      <h2 class="avail-list-title">Dias liberados</h2>
+      <div id="a-list"></div>
+      <p id="a-empty" class="admin-empty-state" hidden>Nenhum dia liberado. As clientes não veem horários até você liberar.</p>
     </section>
 
   </section>
@@ -76,6 +73,6 @@
 </div>
 
 <script src="js/schedule-config.js"></script>
-<script src="js/admin-block.js"></script>
+<script src="js/admin-availability.js"></script>
 </body>
 </html>

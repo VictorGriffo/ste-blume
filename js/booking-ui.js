@@ -2,8 +2,8 @@
   const root = document.getElementById('booking-form');
   if (!root) return;
 
-  const SCHEDULE = window.STEBLUME.SCHEDULE;
   const WHATSAPP_NUMBER = window.STEBLUME.WHATSAPP_NUMBER;
+  const fetchAvailability = window.STEBLUME_BACKEND.fetchAvailability;
   const fetchTakenSlots = window.STEBLUME_BACKEND.fetchTakenSlots;
   const reserveSlot = window.STEBLUME_BACKEND.reserveSlot;
   const isDemoMode = window.STEBLUME_BACKEND.isDemoMode;
@@ -32,14 +32,21 @@
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const maxDate = new Date(today);
-  maxDate.setDate(maxDate.getDate() + SCHEDULE.daysAhead - 1);
+
+  // Dias e horários liberados pela Steffany ({ 'AAAA-MM-DD': ['09:00', ...] }).
+  // Só eles aparecem como disponíveis para a cliente.
+  let availability = {};
 
   let viewYear = today.getFullYear();
   let viewMonth = today.getMonth();
 
+  function lastReleasedDate() {
+    const dates = Object.keys(availability).sort();
+    return dates.length ? new Date(dates[dates.length - 1] + 'T00:00:00') : today;
+  }
+
   function isSelectable(d) {
-    return d >= today && d <= maxDate && SCHEDULE.workDays.indexOf(d.getDay()) !== -1;
+    return d >= today && !!availability[toDateStr(d)];
   }
 
   function renderCalendar() {
@@ -51,7 +58,7 @@
     const canGoPrev = firstOfMonth > todayMonthFirst;
 
     const nextMonthFirst = new Date(viewYear, viewMonth + 1, 1);
-    const canGoNext = nextMonthFirst <= maxDate;
+    const canGoNext = nextMonthFirst <= lastReleasedDate();
 
     let html = '<div class="cal-header">'
       + '<button type="button" class="cal-nav" data-dir="-1"' + (canGoPrev ? '' : ' disabled') + ' aria-label="Mês anterior">‹</button>'
@@ -104,8 +111,6 @@
     statusEl.className = 'form-status';
   }
 
-  const buildTimeList = window.STEBLUME.buildTimeList;
-
   async function renderSlots(dateStr) {
     slotInput.value = '';
     if (!dateStr) {
@@ -114,7 +119,7 @@
     }
     slotsWrap.innerHTML = '<p class="slots-loading">Carregando horários...</p>';
 
-    const times = buildTimeList();
+    const times = availability[dateStr] || [];
     let taken = [];
     try {
       taken = await fetchTakenSlots(dateStr);
@@ -159,7 +164,27 @@
     });
   }
 
+  function showNoAvailability() {
+    slotsWrap.innerHTML = '<p class="slots-loading">No momento não há horários liberados. Chame a Steffany no WhatsApp para combinar o melhor dia.</p>';
+  }
+
+  // Mostra o calendário já (vazio) e preenche quando a lista de dias liberados chegar.
   renderCalendar();
+
+  fetchAvailability(toDateStr(today)).then((map) => {
+    availability = map;
+    const dates = Object.keys(availability).sort();
+    if (dates.length) {
+      const first = new Date(dates[0] + 'T00:00:00');
+      viewYear = first.getFullYear();
+      viewMonth = first.getMonth();
+    } else {
+      showNoAvailability();
+    }
+    renderCalendar();
+  }).catch(() => {
+    slotsWrap.innerHTML = '<p class="slots-loading">Não foi possível carregar os dias disponíveis agora. Recarregue a página ou chame no WhatsApp.</p>';
+  });
 
   if (isDemoMode() && statusEl) {
     statusEl.textContent = 'Modo de demonstração: os horários reservados aqui só ficam salvos neste navegador. Configure o Firebase (js/schedule-config.js) para valer entre todas as clientes.';
@@ -232,5 +257,4 @@
     selectedDateLabel = '';
     renderCalendar();
     slotsWrap.innerHTML = '<p class="slots-loading">Selecione um dia para ver os horários disponíveis.</p>';
-  });
-})();
+  });})();

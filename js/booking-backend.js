@@ -62,6 +62,39 @@
     return !isConfigured;
   }
 
+  // Dias e horários liberados pela Steffany: { 'AAAA-MM-DD': ['09:00', '10:00', ...] }
+  var LOCAL_AVAIL_KEY = 'steblume_demo_availability';
+
+  function localReadAvailability() {
+    try {
+      return JSON.parse(localStorage.getItem(LOCAL_AVAIL_KEY) || '{}');
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function fetchAvailability(fromDateStr) {
+    if (!isConfigured) {
+      var all = localReadAvailability();
+      var map = {};
+      Object.keys(all).forEach(function (date) {
+        if (date >= fromDateStr && Array.isArray(all[date]) && all[date].length) map[date] = all[date].slice().sort();
+      });
+      return Promise.resolve(map);
+    }
+    return initFirebase().then(function () {
+      var q = fs.query(fs.collection(db, 'availability'), fs.where('date', '>=', fromDateStr));
+      return fs.getDocs(q);
+    }).then(function (snap) {
+      var map = {};
+      snap.forEach(function (d) {
+        var data = d.data();
+        if (data.date && Array.isArray(data.times) && data.times.length) map[data.date] = data.times.slice().sort();
+      });
+      return map;
+    });
+  }
+
   function fetchTakenSlots(dateStr) {
     if (!isConfigured) return Promise.resolve(localGetTaken(dateStr));
     return initFirebase().then(function () {
@@ -77,13 +110,23 @@
   function reserveSlot(dateStr, time, bookingData) {
     if (!isConfigured) return Promise.resolve(localReserve(dateStr, time, bookingData));
     return initFirebase().then(function () {
-      var slotRef = fs.doc(db, 'slots', dateStr + '_' + time);
+      // Reserva e horário usam o mesmo id (AAAA-MM-DD_HH:MM): as regras do Firestore
+      // exigem que os dois sejam criados juntos.
+      var id = dateStr + '_' + time;
+      var slotRef = fs.doc(db, 'slots', id);
       return fs.runTransaction(db, function (tx) {
         return tx.get(slotRef).then(function (existing) {
           if (existing.exists()) throw new Error('taken');
           tx.set(slotRef, { date: dateStr, time: time, createdAt: fs.serverTimestamp() });
-          var bookingRef = fs.doc(fs.collection(db, 'bookings'));
-          tx.set(bookingRef, Object.assign({ date: dateStr, time: time, createdAt: fs.serverTimestamp() }, bookingData));
+          var bookingRef = fs.doc(db, 'bookings', id);
+          tx.set(bookingRef, {
+            name: bookingData.name,
+            phone: bookingData.phone,
+            notes: bookingData.notes || '',
+            date: dateStr,
+            time: time,
+            createdAt: fs.serverTimestamp()
+          });
         });
       });
     }).then(function () {
@@ -96,6 +139,7 @@
 
   window.STEBLUME_BACKEND = {
     isDemoMode: isDemoMode,
+    fetchAvailability: fetchAvailability,
     fetchTakenSlots: fetchTakenSlots,
     reserveSlot: reserveSlot
   };
