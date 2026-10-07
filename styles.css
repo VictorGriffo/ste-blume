@@ -1,4 +1,4 @@
-﻿:root{
+:root{
   --ivory:#F3ECE0;
   --ivory-soft:#FAF6EF;
   --white:#FFFFFF;
@@ -10,6 +10,8 @@
   --gold:#B8933E;
   --gold-soft:#D9BC79;
   --line:rgba(36,26,16,0.15);
+  --space-section:clamp(40px,4vw,56px);
+  --space-head:clamp(24px,2.6vw,36px);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -120,14 +122,14 @@ a{color:inherit;text-decoration:none;}
 /* ---------- HERO (foto de fundo, ofuscada pela cor do site) ---------- */
 .hero-cover{
   position:relative;
-  min-height:88vh;
+  min-height:clamp(520px,72vh,680px);
   display:flex;
   align-items:center;
   overflow:hidden;
   background:var(--ivory);
 }
 /* Versão compacta, para o topo de páginas internas (não precisa ocupar a tela toda) */
-.hero-cover-treat{min-height:56vh;}
+.hero-cover-treat{min-height:clamp(360px,44vh,440px);}
 .hero-cover-treat .breadcrumb{
   font-family:'Fraunces', serif;font-style:italic;color:var(--clay);
   font-size:0.95rem;margin-bottom:14px;
@@ -136,12 +138,7 @@ a{color:inherit;text-decoration:none;}
 .hero-cover-treat .breadcrumb a:hover{border-color:var(--clay);}
 .hero-cover-treat h1{font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.05;max-width:16ch;}
 @media(max-width:900px){
-  .hero-cover-treat{min-height:60vh;}
-  /* Trava a altura da foto (não deixa esticar junto com o texto, que é comprido no celular) */
-  .hero-cover-treat .hero-cover-photo,
-  .hero-cover-treat .hero-cover-overlay{
-    position:absolute;top:0;left:0;right:0;bottom:auto;height:380px;
-  }
+  .hero-cover-treat{min-height:0;padding:56px 0 48px;}
 }
 
 .hero-cover-photo{position:absolute;inset:0;}
@@ -206,7 +203,7 @@ a{color:inherit;text-decoration:none;}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:30px;}
 
 @media(max-width:900px){
-  .hero-cover{min-height:78vh;background:var(--ivory);}
+  .hero-cover{min-height:0;padding:64px 0 56px;background:var(--ivory);}
   .hero-cover-overlay{
     background:linear-gradient(180deg,
       rgba(243,236,224,0.55) 0%,
@@ -214,11 +211,6 @@ a{color:inherit;text-decoration:none;}
       rgba(243,236,224,0.98) 100%);
   }
   .hero-cover-content{max-width:none;padding:0 22px;}
-  /* Trava a altura da foto (não deixa esticar junto com o texto, que é comprido no celular) */
-  .hero-cover:not(.hero-cover-treat) .hero-cover-photo,
-  .hero-cover:not(.hero-cover-treat) .hero-cover-overlay{
-    position:absolute;top:0;left:0;right:0;bottom:auto;height:420px;
-  }
 }
 
 .btn{
@@ -237,7 +229,7 @@ a{color:inherit;text-decoration:none;}
 
 /* ---------- PAGE HERO (inner pages) ---------- */
 .page-hero{
-  padding:130px 24px 60px;
+  padding:clamp(40px,5vw,72px) 24px 8px;
   background:var(--ivory);
 }
 .page-hero .wrap{max-width:1240px;margin:0 auto;}
@@ -314,7 +306,7 @@ a{color:inherit;text-decoration:none;}
 }
 
 /* ---------- SECTION SCAFFOLD ---------- */
-section{padding:72px 0;position:relative;}
+section{padding:var(--space-section) 0;position:relative;}
 .wrap{max-width:1240px;margin:0 auto;padding:0 24px;}
 
 .section-label{
@@ -328,7 +320,7 @@ section{padding:72px 0;position:relative;}
 /* ---------- TRATAMENTOS (cards) ---------- */
 .treat-head{
   display:flex;justify-content:space-between;align-items:flex-end;gap:40px;
-  margin-bottom:44px;flex-wrap:wrap;
+  margin-bottom:var(--space-head);flex-wrap:wrap;
 }
 .treat-head h2{font-size:clamp(2.4rem,5vw,4rem);max-width:9ch;line-height:1;}
 .treat-head p{max-width:34ch;color:var(--brown-mid);}
@@ -402,11 +394,9 @@ section{padding:72px 0;position:relative;}
   color:var(--ivory-soft);
   clip-path:polygon(0 6%, 100% 0, 100% 100%, 0 94%);
   margin:-4vw 0;
-  padding-top:100px;
-  padding-bottom:100px;
 }
 .tech .section-label{color:var(--gold-soft);}
-.tech h2{color:var(--ivory-soft);font-size:clamp(2.2rem,4.6vw,3.6rem);max-width:14ch;margin-bottom:40px;}
+.tech h2{color:var(--ivory-soft);font-size:clamp(2.2rem,4.6vw,3.6rem);max-width:14ch;margin-bottom:var(--space-head);}
 
 .tech-row{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(250,246,239,0.15);}
 @media(min-width:820px){.tech-row{grid-template-columns:repeat(3,1fr);}}
@@ -438,7 +428,6 @@ section{padding:72px 0;position:relative;}
 .benefit-item p{color:var(--brown-mid);font-size:0.92rem;}
 
 /* ---------- TRAJETORIA ---------- */
-.story{padding-top:110px;}
 .story-grid{display:grid;grid-template-columns:1fr;gap:0;position:relative;}
 @media(min-width:900px){.story-grid{grid-template-columns:0.9fr 1.1fr;align-items:center;}}
 
@@ -511,7 +500,7 @@ section{padding:72px 0;position:relative;}
 }
 
 /* ---------- GALERIA ---------- */
-.gallery-head{margin-bottom:40px;}
+.gallery-head{margin-bottom:var(--space-head);}
 .gallery-head h2{font-size:clamp(2.2rem,4.6vw,3.6rem);}
 .gallery-head p{color:var(--brown-mid);max-width:44ch;margin-top:14px;}
 
@@ -563,7 +552,7 @@ section{padding:72px 0;position:relative;}
 }
 .ba-tag-before{left:16px;}
 .ba-tag-after{right:16px;}
-.ba-hint{text-align:center;font-size:0.82rem;color:var(--brown-mid);margin-bottom:44px;}
+.ba-hint{text-align:center;font-size:0.82rem;color:var(--brown-mid);margin-bottom:36px;}
 @media(max-width:700px){
   .ba-slider{aspect-ratio:4/3;max-height:380px;margin-top:-4px;}
   .ba-hint{margin-bottom:28px;}
@@ -642,7 +631,6 @@ section{padding:72px 0;position:relative;}
   background:var(--brown-section);
   color:var(--ivory-soft);
   clip-path:polygon(0 6%, 100% 0, 100% 100%, 0 100%);
-  padding-top:100px;
 }
 .contact .section-label{color:var(--gold-soft);}
 .contact h2{
@@ -663,7 +651,7 @@ section{padding:72px 0;position:relative;}
   grid-template-columns:1fr;
   gap:48px;
   align-items:center;
-  margin-bottom:56px;
+  margin-bottom:var(--space-section);
 }
 @media(min-width:900px){
   .contact-banner{grid-template-columns:0.9fr 1.1fr;gap:64px;}
@@ -686,7 +674,7 @@ section{padding:72px 0;position:relative;}
   min-height:440px;
   display:flex;align-items:flex-end;
   padding:56px 36px;
-  margin-bottom:56px;
+  margin-bottom:var(--space-section);
 }
 .contact-hero-photo{
   position:absolute;inset:0;
@@ -1086,13 +1074,14 @@ footer{padding:50px 24px;background:var(--brown-section);}
 }
 
 .treat-detail{border:none;border-radius:var(--r-lg);box-shadow:var(--shadow-soft);scroll-margin-top:100px;}
+.treat-detail:last-child{margin-bottom:0;}
 
 /* Faixa escura "Como trabalhamos": curva no lugar da diagonal */
 .tech{
-  clip-path:none;margin:0 12px 48px;border-radius:var(--r-lg);
-  padding-top:90px;padding-bottom:90px;
+  clip-path:none;margin:0 12px var(--space-section);border-radius:var(--r-lg);
+  padding-top:calc(var(--space-section)*1.5);padding-bottom:calc(var(--space-section)*1.5);
 }
-@media(min-width:900px){.tech{margin:0 24px 64px;}}
+@media(min-width:900px){.tech{margin:0 24px var(--space-section);}}
 .tech-row{background:none;gap:16px;}
 .tech-item{
   background:rgba(250,246,239,0.06);
@@ -1167,7 +1156,7 @@ footer{padding:50px 24px;background:var(--brown-section);}
 .admin-row:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);}
 .admin-time-badge{border-radius:var(--r-sm);}
 /* ---------- FAQ (layout com painel lateral e grupos) ---------- */
-.faq-section{padding-top:24px;padding-bottom:100px;}
+.faq-section{padding-top:24px;padding-bottom:var(--space-section);}
 .faq-layout{display:grid;grid-template-columns:1fr;gap:48px;align-items:start;}
 @media(min-width:960px){.faq-layout{grid-template-columns:340px 1fr;gap:64px;}}
 
@@ -1244,8 +1233,7 @@ footer{padding:50px 24px;background:var(--brown-section);}
 
   /* Seções com menos respiro vertical */
   section{padding:52px 0;}
-  .story{padding-top:56px;}
-  .page-hero{padding:40px 16px 28px;}
+  .page-hero{padding:32px 16px 4px;}
   .page-hero h1{font-size:clamp(2.2rem,10vw,3rem);}
   .page-hero p{margin-top:14px;font-size:0.98rem;}
 
@@ -1269,7 +1257,7 @@ footer{padding:50px 24px;background:var(--brown-section);}
   .treat-detail-body{padding:0 20px 24px;gap:20px;}
 
   /* Faixa "Como trabalhamos" */
-  .tech{padding-top:52px;padding-bottom:52px;margin:0 8px 32px;}
+  .tech{padding-top:calc(var(--space-section)*1.25);padding-bottom:calc(var(--space-section)*1.25);margin:0 8px var(--space-section);}
   .tech h2{margin-bottom:24px;}
   .tech-row{gap:10px;}
   .tech-item{padding:24px 20px;}
@@ -1290,7 +1278,6 @@ footer{padding:50px 24px;background:var(--brown-section);}
   .mosaic{grid-auto-rows:140px;gap:10px;}
 
   /* Contato */
-  .contact{padding-top:56px;}
   .contact-banner{gap:28px;margin-bottom:32px;}
   .contact-photo{aspect-ratio:4/3;}
   .contact h2{font-size:clamp(2.2rem,10vw,2.8rem);margin-bottom:16px;}
@@ -1300,7 +1287,7 @@ footer{padding:50px 24px;background:var(--brown-section);}
   footer{padding:36px 16px 90px;}
 
   /* FAQ e agendamento */
-  .faq-section{padding-bottom:64px;}
+  .faq-section{padding-bottom:var(--space-section);}
   .faq-layout{gap:32px;}
   .faq-groups{gap:36px;}
   .booking-layout{gap:28px;}
@@ -1344,14 +1331,13 @@ footer{padding:50px 24px;background:var(--brown-section);}
 
   /* ----- Tipografia e espaçamentos ----- */
   section{padding:44px 0;}
-  .story{padding-top:48px;}
   .section-label{font-size:0.9rem;margin-bottom:8px;}
   .hero-cover-content{padding:0 16px;}
   .hero-cover-content h1{font-size:2.3rem;line-height:1;}
   .hero-kicker{font-size:0.8rem;}
   .hero-sub{font-size:0.95rem;}
   .btn{padding:12px 22px;font-size:0.9rem;}
-  .page-hero{padding:30px 16px 20px;}
+  .page-hero{padding:28px 16px 4px;}
   .page-hero h1{font-size:2.1rem;}
   .treat-head h2,.gallery-head h2,.tech h2,.faq-group-title{font-size:1.9rem;}
   .treat-head p,.gallery-head p{font-size:0.92rem;}
@@ -1367,7 +1353,7 @@ footer{padding:50px 24px;background:var(--brown-section);}
   .treat-stack,.tech-row,.testi-grid,.mosaic{
     display:flex;flex-direction:row;flex-wrap:nowrap;
     overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
-    gap:12px;margin:0 -16px;padding:4px 16px 20px;scroll-padding:0 16px;
+    gap:12px;margin:0 -16px;padding:4px 16px 8px;scroll-padding:0 16px;
     scrollbar-width:none;background:none;
   }
   .treat-stack::-webkit-scrollbar,.tech-row::-webkit-scrollbar,
@@ -1395,3 +1381,8 @@ footer{padding:50px 24px;background:var(--brown-section);}
 .map-link:hover{color:var(--gold);}
 .info-cell .map-link{color:var(--gold-soft);}
 .info-cell .map-link:hover{color:var(--ivory-soft);}
+
+/* Faixa de fundo alternado: marca o ritmo entre as seções claras sem aumentar o espaço */
+#depoimentos{background:rgba(216,190,156,0.2);}
+/* Último bloco de uma seção não soma margem ao respiro da própria seção */
+.contact-banner:last-child{margin-bottom:0;}
