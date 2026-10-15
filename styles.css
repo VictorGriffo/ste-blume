@@ -480,25 +480,6 @@ section{padding:var(--space-section) 0;position:relative;}
 .value-item h3{font-size:1.15rem;margin-bottom:10px;}
 .value-item p{color:var(--brown-mid);font-size:0.94rem;}
 
-/* ---------- TESTIMONIALS ---------- */
-.testi-grid{
-  display:grid;grid-template-columns:1fr;gap:24px;
-}
-@media(min-width:760px){.testi-grid{grid-template-columns:repeat(3,1fr);}}
-.testi-card{
-  background:var(--white);border:1px solid var(--line);padding:32px 30px;
-  display:flex;flex-direction:column;gap:18px;
-}
-.testi-card .stars{color:var(--gold);letter-spacing:2px;font-size:0.95rem;}
-.testi-card p{
-  font-family:'Fraunces', serif;font-style:italic;color:var(--brown-deep);
-  font-size:1.02rem;line-height:1.5;
-}
-.testi-card .name{
-  color:var(--brown-mid);font-size:0.85rem;
-  border-top:1px solid var(--line);padding-top:14px;
-}
-
 /* ---------- GALERIA ---------- */
 .gallery-head{margin-bottom:var(--space-head);}
 .gallery-head h2{font-size:clamp(2.2rem,4.6vw,3.6rem);}
@@ -1109,9 +1090,6 @@ footer{padding:50px 24px;background:var(--brown-section);}
   background:var(--gold);margin-bottom:14px;
 }
 
-/* Depoimentos */
-.testi-card{border:none;border-radius:var(--r-lg);box-shadow:var(--shadow-soft);}
-.testi-card .name{border-top:none;padding-top:0;font-style:italic;}
 
 /* Galeria */
 .m-item{border:none;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-soft);background:linear-gradient(160deg,var(--white),var(--ivory-soft));}
@@ -1268,9 +1246,7 @@ footer{padding:50px 24px;background:var(--brown-section);}
   .story-text{padding:30px 22px;margin-top:-28px;}
   .story-text p:first-child{font-size:1.25rem;}
 
-  /* Depoimentos, credenciais, galeria */
-  .testi-grid{gap:12px;}
-  .testi-card{padding:24px 22px;gap:12px;}
+  /* Credenciais, galeria */
   .cred-list{gap:10px;}
   .cred-item{padding:22px 20px;}
   .values-row{gap:22px;margin-top:28px;}
@@ -1350,26 +1326,24 @@ footer{padding:50px 24px;background:var(--brown-section);}
   .marquee-track span::after{margin-left:22px;}
 
   /* ----- Carrosséis de arrastar para o lado ----- */
-  .treat-stack,.tech-row,.testi-grid,.mosaic{
+  .treat-stack,.tech-row,.mosaic{
     display:flex;flex-direction:row;flex-wrap:nowrap;
     overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
     gap:12px;margin:0 -16px;padding:4px 16px 8px;scroll-padding:0 16px;
     scrollbar-width:none;background:none;
   }
-  .treat-stack::-webkit-scrollbar,.tech-row::-webkit-scrollbar,
-  .testi-grid::-webkit-scrollbar,.mosaic::-webkit-scrollbar{display:none;}
-  .treat-stack > *,.tech-row > *,.testi-grid > *,.mosaic > *{scroll-snap-align:start;flex-shrink:0;}
+  .treat-stack::-webkit-scrollbar,.tech-row::-webkit-scrollbar,.mosaic::-webkit-scrollbar{display:none;}
+  .treat-stack > *,.tech-row > *,.mosaic > *{scroll-snap-align:start;flex-shrink:0;}
 
   .treat-stack > .treat-card{flex-basis:80%;align-content:space-between;}
   .tech-row > .tech-item{flex-basis:78%;}
-  .testi-grid > .testi-card{flex-basis:84%;}
   .mosaic{grid-auto-rows:auto;}
   .mosaic > .m-item{flex-basis:68%;height:230px;grid-column:auto;grid-row:auto;}
   .mosaic > .m1{flex-basis:84%;}
 
   /* Dentro dos carrosséis, os cartões aparecem já visíveis
      (senão o cartão "espiando" na borda ficaria invisível). */
-  .treat-stack .reveal,.tech-row .reveal,.testi-grid .reveal,.mosaic .reveal{
+  .treat-stack .reveal,.tech-row .reveal,.mosaic .reveal{
     opacity:1;transform:none;transition:none;
   }
 }
@@ -1383,6 +1357,6 @@ footer{padding:50px 24px;background:var(--brown-section);}
 .info-cell .map-link:hover{color:var(--ivory-soft);}
 
 /* Faixa de fundo alternado: marca o ritmo entre as seções claras sem aumentar o espaço */
-#depoimentos{background:rgba(216,190,156,0.2);}
+#galeria{background:rgba(216,190,156,0.2);}
 /* Último bloco de uma seção não soma margem ao respiro da própria seção */
 .contact-banner:last-child{margin-bottom:0;}
