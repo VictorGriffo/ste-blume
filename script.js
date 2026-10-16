@@ -16,21 +16,6 @@
 // js/booking-ui.js + js/booking-backend.js (carregada só na página agendar.html),
 // pois precisa consultar/gravar horários no banco de dados.
 
-// Logo no topo: ao clicar, mostra o acesso discreto ao painel administrativo.
-(function(){
-  var btn = document.getElementById('brandBtn');
-  var pop = document.getElementById('adminPop');
-  if (!btn || !pop) return;
-  function close(){ pop.hidden = true; btn.setAttribute('aria-expanded', 'false'); }
-  btn.addEventListener('click', function(e){
-    e.stopPropagation();
-    pop.hidden = !pop.hidden;
-    btn.setAttribute('aria-expanded', pop.hidden ? 'false' : 'true');
-  });
-  document.addEventListener('click', function(e){ if (!pop.contains(e.target)) close(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
-})();
-
 // Celular: menu recolhido atrás de um botão ☰ (o CSS só o mostra em telas pequenas).
 (function(){
   var bar = document.querySelector('.topbar');
