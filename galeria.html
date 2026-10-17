@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261016e">
+<link rel="stylesheet" href="styles.css?v=20261016r">
 </head>
 <body>
 
@@ -31,46 +31,101 @@
     <a href="faq.html">FAQ</a>
     <a href="galeria.html" class="active">Galeria</a>
   </nav>
-  <a href="https://api.whatsapp.com/send?phone=5527998041609&text=Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o" target="_blank" rel="noopener" class="cta">Agendar</a>
+  <a href="agendar.html" class="cta">Agendar</a>
 </header>
 <div class="content">
 
-  <section class="page-hero">
-    <div class="wrap reveal">
-      <div class="breadcrumb"><a href="index.html">Início</a> / Galeria</div>
-      <h1>Procedimentos e o nosso espaço</h1>
-      <p>Um registro do trabalho e do ambiente onde ele acontece.</p>
+  <section class="gal-hero">
+    <div class="wrap gal-hero-grid">
+      <div class="gal-hero-text reveal">
+        <div class="breadcrumb"><a href="index.html">Início</a> / Galeria</div>
+        <h1>Procedimentos e o nosso espaço</h1>
+        <p>Um registro do trabalho e do ambiente onde ele acontece.</p>
+        <a href="#procedimentos" class="btn btn-arrow"><span class="arrow">›</span> Ver as fotos</a>
+      </div>
+      <div class="gal-hero-visual reveal">
+        <span class="gal-hero-ring" aria-hidden="true"></span>
+        <img src="img/galeria/cuidado.jpg" alt="Escovação da sobrancelha durante o atendimento">
+      </div>
     </div>
   </section>
 
-  <section>
+  <section id="procedimentos">
     <div class="wrap">
       <div class="gallery-head reveal">
         <div class="section-label">Procedimentos</div>
         <h2>Como acontece o trabalho</h2>
+        <p>Antes e depois, cuidado e atendimento. Toque numa foto para ampliar.</p>
       </div>
-
-      <div class="mosaic">
-        <div class="m-item m1 reveal"><img src="img/galeria-1.jpg" alt="Imagem ilustrativa: flores secas sobre linho" class="m-photo" loading="lazy"><span>Cuidado no detalhe</span></div>
-        <div class="m-item m2 reveal"><img src="img/galeria-2.jpg" alt="Imagem ilustrativa: tigela de cerâmica com uma flor na água" class="m-photo" loading="lazy"><span>Calma e bem-estar</span></div>
-        <div class="m-item m3 reveal"><img src="img/galeria-3.jpg" alt="Imagem ilustrativa: toalhas dobradas e frasco de vidro âmbar" class="m-photo" loading="lazy"><span>Conforto no atendimento</span></div>
-        <div class="m-item m4 reveal"><img src="img/galeria-4.jpg" alt="Imagem ilustrativa: ramo de eucalipto sobre linho" class="m-photo" loading="lazy"><span>Naturalidade</span></div>
-        <div class="m-item m5 reveal"><img src="img/galeria-5.jpg" alt="Imagem ilustrativa: frasco com conta-gotas e pote de cerâmica" class="m-photo" loading="lazy"><span>Produtos selecionados</span></div>
-        <div class="m-item m6 reveal"><img src="img/galeria-6.jpg" alt="Imagem ilustrativa: vela acesa em vaso de cerâmica" class="m-photo" loading="lazy"><span>Ambiente acolhedor</span></div>
-      </div>
-
-      <div class="gallery-head reveal" style="margin-top:var(--space-section)">
-        <div class="section-label">Ambiente</div>
-        <h2>Nosso espaço</h2>
-      </div>
-      <div class="space-grid">
-        <figure class="space-item reveal"><img src="img/hero.jpg" alt="Imagem ilustrativa de uma sala de atendimento" loading="lazy"></figure>
-        <figure class="space-item reveal"><img src="img/contato-hero.jpg" alt="Imagem ilustrativa de um canto de recepção" loading="lazy"></figure>
-        <figure class="space-item reveal"><img src="img/tratamentos-hero.jpg" alt="Imagem ilustrativa de uma bancada com frascos" loading="lazy"></figure>
-        <figure class="space-item reveal"><img src="img/sobre-contato.jpg" alt="Imagem ilustrativa de uma banqueta junto à janela" loading="lazy"></figure>
+      <div class="g-grid g-grid-3">
+        <figure class="g-item" data-group="p"><button type="button" class="g-open" aria-label="Ampliar: Antes e depois de uma sobrancelha"><img src="img/galeria/antes-depois.jpg" alt="Antes e depois de uma sobrancelha" loading="lazy"></button></figure>
+        <figure class="g-item" data-group="p"><button type="button" class="g-open" aria-label="Ampliar: Antes e depois: olhar e sobrancelhas"><img src="img/galeria/olhos-1.jpg" alt="Antes e depois: olhar e sobrancelhas" loading="lazy"></button></figure>
+        <figure class="g-item" data-group="p"><button type="button" class="g-open" aria-label="Ampliar: Sobrancelha com acabamento natural, em close"><img src="img/galeria/sobrancelha.jpg" alt="Sobrancelha com acabamento natural, em close" loading="lazy"></button></figure>
+        <figure class="g-item" data-group="p"><button type="button" class="g-open" aria-label="Ampliar: Desenho da sobrancelha e resultado"><img src="img/galeria/resultado.jpg" alt="Desenho da sobrancelha e resultado" loading="lazy"></button></figure>
+        <figure class="g-item" data-group="p"><button type="button" class="g-open" aria-label="Ampliar: Antes e depois: sobrancelhas e cílios"><img src="img/galeria/olhos-2.jpg" alt="Antes e depois: sobrancelhas e cílios" loading="lazy"></button></figure>
+        <figure class="g-item" data-group="p"><button type="button" class="g-open" aria-label="Ampliar: Procedimento de sobrancelha em atendimento"><img src="img/galeria/procedimento.jpg" alt="Procedimento de sobrancelha em atendimento" loading="lazy"></button></figure>
       </div>
     </div>
   </section>
+
+  <section class="g-soft" id="ambiente">
+    <div class="wrap">
+      <div class="gallery-head reveal">
+        <div class="section-label">Ambiente</div>
+        <h2>Nosso espaço</h2>
+        <p>Um lugar calmo e acolhedor, pensado para você se sentir bem.</p>
+      </div>
+      <div class="g-grid g-grid-4">
+        <figure class="g-item" data-group="c"><button type="button" class="g-open" aria-label="Ampliar: Sala de atendimento com flores secas"><img src="img/galeria/sala.jpg" alt="Sala de atendimento com flores secas" loading="lazy"></button></figure>
+        <figure class="g-item" data-group="c"><button type="button" class="g-open" aria-label="Ampliar: Bancada e produtos da clínica"><img src="img/galeria/bancada.jpg" alt="Bancada e produtos da clínica" loading="lazy"></button></figure>
+        <figure class="g-item" data-group="c"><button type="button" class="g-open" aria-label="Ampliar: Xícara com a marca Ste Blume"><img src="img/galeria/xicara.jpg" alt="Xícara com a marca Ste Blume" loading="lazy"></button></figure>
+        <figure class="g-item" data-group="c"><button type="button" class="g-open" aria-label="Ampliar: Rosas e difusor de aromas na recepção"><img src="img/galeria/difusor.jpg" alt="Rosas e difusor de aromas na recepção" loading="lazy"></button></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contato">
+    <div class="wrap">
+      <div class="contact-banner">
+        <div class="contact-photo reveal">
+          <img src="img/galeria/steffany.jpg" alt="Steffany Bermudes sorrindo" class="contact-photo-img" loading="lazy">
+        </div>
+        <div class="contact-text">
+          <div class="section-label reveal">Vamos conversar</div>
+          <h2 class="reveal">Vamos cuidar do seu olhar</h2>
+          <p class="reveal">Agende sua avaliação e descubra o protocolo ideal para a saúde das suas sobrancelhas.</p>
+          <a href="https://api.whatsapp.com/send?phone=5527998041609&text=Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o" target="_blank" rel="noopener" class="btn btn-arrow reveal">
+            <span class="arrow">›</span> Agendar avaliação
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" hidden aria-modal="true" role="dialog" aria-label="Foto ampliada">
+    <button type="button" class="lb-close" aria-label="Fechar">&times;</button>
+    <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior">&#8249;</button>
+    <figure class="lb-fig"><img alt=""><figcaption></figcaption></figure>
+    <button type="button" class="lb-nav lb-next" aria-label="Próxima foto">&#8250;</button>
+  </div>
+  <script>
+  (function(){
+    var items=[].slice.call(document.querySelectorAll('.g-item')),
+        lb=document.getElementById('lightbox'),img=lb.querySelector('img'),cap=lb.querySelector('figcaption'),group=[],cur=0,x0=null;
+    function show(n){cur=(n+group.length)%group.length;var im=group[cur].querySelector('img');img.src=im.src;img.alt=im.alt;cap.textContent=im.alt+' \u00b7 '+(cur+1)+' de '+group.length;}
+    function open(el){group=items.filter(function(i){return i.dataset.group===el.dataset.group;});lb.hidden=false;document.body.style.overflow='hidden';show(group.indexOf(el));lb.querySelector('.lb-close').focus();}
+    function close(){lb.hidden=true;document.body.style.overflow='';}
+    items.forEach(function(i){i.querySelector('.g-open').addEventListener('click',function(){open(i);});});
+    lb.querySelector('.lb-prev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
+    lb.querySelector('.lb-next').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
+    lb.querySelector('.lb-close').addEventListener('click',close);
+    lb.addEventListener('click',function(e){if(e.target===lb)close();});
+    document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+    lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+    lb.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)show(cur+(d<0?1:-1));x0=null;});
+  })();
+  </script>
+
 
   <footer>
     <div class="footer-row">
@@ -100,6 +155,6 @@
   </svg>
 </a>
 
-<script src="script.js?v=20261016e"></script>
+<script src="script.js?v=20261016r"></script>
 </body>
 </html>
