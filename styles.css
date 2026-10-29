@@ -1473,3 +1473,15 @@ footer{padding:50px 24px;background:var(--brown-section);}
 .gal-hero-ring{position:absolute;z-index:0;inset:-16px -16px 16px 16px;border:1px solid var(--gold-soft);border-radius:999px 999px var(--r-md) var(--r-md);}
 @media(min-width:900px){.gal-hero-grid{grid-template-columns:1.1fr .9fr;gap:60px;}.gal-hero-visual{justify-self:end;width:min(100%,420px);}}
 @media(max-width:640px){.gal-hero{padding:28px 16px 12px;}.gal-hero-text h1{font-size:2.2rem;}.gal-hero-visual{width:min(86%,320px);}}
+
+/* Ajustes de layout (fotos reais) */
+.feature-visual img.img-full{aspect-ratio:1/1;}
+@media(min-width:900px){.feature-visual:has(img.img-full){max-width:460px;}}
+.contact-banner .contact-photo{width:100%;max-width:340px;justify-self:center;aspect-ratio:4/5;outline:1px solid var(--gold-soft);outline-offset:12px;}
+@media(min-width:900px){.contact-banner{grid-template-columns:340px 1fr;gap:88px;justify-content:center;}}
+@media(max-width:899px){.contact-banner .contact-photo{max-width:260px;aspect-ratio:4/5;margin:12px auto;}}
+
+/* Sobre: credenciais em texto corrido */
+.cred-text{max-width:62ch;margin-bottom:var(--space-section);}
+.cred-text p{color:var(--brown-mid);font-size:1.05rem;line-height:1.8;margin-bottom:18px;}
+.cred-text .cred-lead{font-family:'Fraunces',serif;color:var(--brown-deep);font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.5;}
