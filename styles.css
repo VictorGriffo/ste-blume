@@ -1520,3 +1520,11 @@ footer{padding:50px 24px;background:var(--brown-section);}
   .story-text{margin-top:-36px;}
   .story-name{left:12px;bottom:52px;}
 }
+
+/* Celular: arcos menores e rodapé numa linha */
+@media(max-width:700px){
+  .story-visual{max-width:250px;}
+  .gal-hero-visual{width:min(70%,230px);}
+  .footer-links{gap:12px 14px;}
+  .footer-links a{font-size:0.8rem;}
+}
