@@ -1485,3 +1485,23 @@ footer{padding:50px 24px;background:var(--brown-section);}
 .cred-text{max-width:62ch;margin-bottom:var(--space-section);}
 .cred-text p{color:var(--brown-mid);font-size:1.05rem;line-height:1.8;margin-bottom:18px;}
 .cred-text .cred-lead{font-family:'Fraunces',serif;color:var(--brown-deep);font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.5;}
+
+/* Topo da Home com a foto de capa */
+.hero-cover-capa .hero-cover-overlay{display:none;}
+.hero-cover-capa .hero-cover-photo{left:34%;}
+.hero-cover-capa .hero-cover-img{object-fit:cover;object-position:60% 22%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%);mask-image:linear-gradient(90deg,transparent 0,#000 24%);}
+@media(max-width:900px){
+  .hero-cover-capa{flex-direction:column;align-items:stretch;padding:0 0 40px;}
+  .hero-cover-capa .hero-cover-photo{position:relative;inset:auto;left:auto;height:260px;margin-bottom:28px;}
+  .hero-cover-capa .hero-cover-img{object-position:50% 25%;-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 70%,transparent 100%);}
+}
+/* Textos de tratamentos em parágrafos */
+.feature-text p+p,.feature-text p+ul,.feature-text ul+p{margin-top:14px;}
+.feature-text .benefit-list strong{font-weight:600;color:var(--brown-deep);}
+/* Antes e depois em formato vertical */
+.feature-visual img.img-tall{aspect-ratio:4/5;max-width:400px;margin-inline:auto;display:block;}
+/* Nome ao lado da foto */
+.story-visual{position:relative;}
+.story-name{position:absolute;left:14px;bottom:14px;padding:10px 16px;background:rgba(250,246,239,.92);border-radius:var(--r-md);color:var(--brown-deep);line-height:1.25;}
+.story-name strong{display:block;font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;}
+.story-name span{font-size:.78rem;color:var(--brown-mid);}
