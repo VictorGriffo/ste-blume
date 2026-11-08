@@ -1505,3 +1505,18 @@ footer{padding:50px 24px;background:var(--brown-section);}
 .story-name{position:absolute;left:14px;bottom:14px;padding:10px 16px;background:rgba(250,246,239,.92);border-radius:var(--r-md);color:var(--brown-deep);line-height:1.25;}
 .story-name strong{display:block;font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;}
 .story-name span{font-size:.78rem;color:var(--brown-mid);}
+
+/* Celular: topo imersivo e fotos menores */
+@media(max-width:700px){
+  .hero-cover-capa{display:block;position:relative;min-height:0;padding:0 0 36px;}
+  .hero-cover-capa .hero-cover-photo{position:relative;inset:auto;left:auto;height:min(62vh,500px);margin:0;}
+  .hero-cover-capa .hero-cover-img{object-position:48% 20%;-webkit-mask-image:linear-gradient(180deg,#000 66%,transparent 100%);mask-image:linear-gradient(180deg,#000 66%,transparent 100%);}
+  .hero-cover-capa .hero-cover-overlay{display:none;}
+  .hero-cover-capa .hero-cover-content{padding:0 22px;margin-top:-26px;}
+  .feature-grid{gap:20px;}
+  .feature-visual{max-width:290px;margin-inline:auto;}
+  .feature-visual img.img-tall{max-width:230px;}
+  .story-visual{aspect-ratio:4/5;max-width:290px;margin-inline:auto;}
+  .story-text{margin-top:-36px;}
+  .story-name{left:12px;bottom:52px;}
+}
